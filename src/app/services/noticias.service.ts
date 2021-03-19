@@ -15,6 +15,7 @@ const headers = new HttpHeaders({
 })
 export class NoticiasService {
 
+  headlinesPage=0;
   constructor(
     private http: HttpClient,
     
@@ -29,9 +30,10 @@ export class NoticiasService {
   }
 
   getTopHeadLines(){
+    this.headlinesPage++;
     //return this.http.get<RespuestaTopHeadlines>(`http://newsapi.org/v2/everything?q=ecuador&apiKey=59385855f0304deeae76500d7764e5bd`);
 
-    return this.ejecutarQuery<RespuestaTopHeadlines>(`/top-headlines?country=mx`);
+    return this.ejecutarQuery<RespuestaTopHeadlines>(`/top-headlines?country=mx&page=${this.headlinesPage}`);
   }
 
   getTopHeadLinesCategoria(categoria:string){

@@ -19,13 +19,29 @@ export class Tab1Page implements OnInit{
   }
 
   ngOnInit(){
+    this.cargarNoticias();
+  }
+
+  loadData(event){
+    console.log(event);
+    this.cargarNoticias(event);
+  }
+
+  cargarNoticias(event?){
     this._noticiasService.getTopHeadLines()
     .subscribe(resp=>{
-      console.log('noticias', resp.articles);
+      console.log('noticias', resp);
+      if(event && resp.articles.length===0){
+        event.target.disabled=true;
+        event.target.complete();
+        return;
+      }
       //this.noticias=resp.articles;
       //se hace push para que no reemplace las noticias existentes
       this.noticias.push(...resp.articles);
+      if(event) {
+        event.target.complete();
+      }
     });
   }
-
 }
