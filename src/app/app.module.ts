@@ -7,6 +7,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    InAppBrowser
+    InAppBrowser,
+    StatusBar,
+    NavigationBar,
   ],
   bootstrap: [AppComponent],
 })

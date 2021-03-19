@@ -33,7 +33,7 @@
 
 .noticia-source-name {
     font-size: 12px;
-    color: lightgray;
+    color: rgb(168, 142, 142);
 }
 
 ion-spinner {
@@ -42,3 +42,9 @@ ion-spinner {
 .infinite-loading-text{
   color: white !important;
 }
+
+.toolbar-background-md{
+  background-color: red;
+}
+
+$toolbar-background: #009241;
