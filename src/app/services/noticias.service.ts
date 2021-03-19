@@ -16,6 +16,9 @@ const headers = new HttpHeaders({
 export class NoticiasService {
 
   headlinesPage=0;
+  categoriaActual='';
+  categoriaPage=0;
+
   constructor(
     private http: HttpClient,
     
@@ -37,9 +40,16 @@ export class NoticiasService {
   }
 
   getTopHeadLinesCategoria(categoria:string){
+    if(this.categoriaActual===categoria){
+      this.categoriaPage++;
+    }
+    else{
+      this.categoriaPage=1;
+      this.categoriaActual=categoria;
+    }
     //return this.http.get<RespuestaTopHeadlines>(`http://newsapi.org/v2/everything?q=ecuador&category=business&apiKey=59385855f0304deeae76500d7764e5bd`);
 
-    return this.ejecutarQuery<RespuestaTopHeadlines>(`/top-headlines?country=mx&category=${categoria}`);
+    return this.ejecutarQuery<RespuestaTopHeadlines>(`/top-headlines?country=mx&category=${categoria}&page=${this.categoriaPage}`);
 
   }
 
