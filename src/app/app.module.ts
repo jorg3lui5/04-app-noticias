@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
-
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 @NgModule({
   declarations: [
@@ -27,6 +27,7 @@ import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
     InAppBrowser,
     StatusBar,
     NavigationBar,
+    SocialSharing,
   ],
   bootstrap: [AppComponent],
 })
