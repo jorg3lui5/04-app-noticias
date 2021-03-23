@@ -3,6 +3,7 @@ import { Article } from '../../interfaces/interfaces';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { ActionSheetController } from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { DataLocalService } from '../../services/data-local.service';
 
 @Component({
   selector: 'app-noticia',
@@ -18,6 +19,7 @@ export class NoticiaComponent implements OnInit {
     private iab: InAppBrowser,
     public actionSheetController: ActionSheetController,
     private socialSharing: SocialSharing,
+    private dataLocalService: DataLocalService,
   ) { }
 
   ngOnInit() {}
@@ -57,6 +59,8 @@ export class NoticiaComponent implements OnInit {
         cssClass: 'action-dark',
         handler: () => {
           console.log('favorito');
+          console.log(this.noticia);
+          this.dataLocalService.guardarNoticia(this.noticia);
         }
       }, {
         text: 'Cancelar',
