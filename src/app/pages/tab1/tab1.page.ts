@@ -28,7 +28,7 @@ export class Tab1Page implements OnInit{
   }
 
   ngOnInit(){
-    //this.cargarNoticias();
+    this.cargarNoticias();
   }
 
   loadData(event){
