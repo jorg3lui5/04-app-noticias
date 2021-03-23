@@ -24,8 +24,7 @@ export class DataLocalService {
       this.noticiasFavoritos.unshift(noticia);
       console.log(this.noticiasFavoritos);
       this.nativeStorage.setItem('favoritos', this.noticiasFavoritos).then(()=>{
-        alert('Giuard');
-
+        //alert('Guardado en Favoritos');
       })
     }
   }
@@ -43,5 +42,12 @@ export class DataLocalService {
     if(favoritos){
       this.noticiasFavoritos = favoritos;
     }
+  }
+
+  borrarNoticia(noticia: Article){
+    this.noticiasFavoritos=this.noticiasFavoritos.filter(noti=>noti.title!==noticia.title);
+    this.nativeStorage.setItem('favoritos', this.noticiasFavoritos).then(()=>{
+      //alert('Eliminidado de Favoritos');
+    })
   }
 }

@@ -11,5 +11,6 @@
       <ion-label>No hay favoritos</ion-label>
     </ion-slide>
   </ion-slides>
-  <app-noticias *ngIf="dataLocalService.noticiasFavoritos.length>0"[noticias]="dataLocalService.noticiasFavoritos"></app-noticias>
+  <app-noticias *ngIf="dataLocalService.noticiasFavoritos.length>0"
+    [enFavoritos]="true" [noticias]="dataLocalService.noticiasFavoritos"></app-noticias>
 </ion-content>
