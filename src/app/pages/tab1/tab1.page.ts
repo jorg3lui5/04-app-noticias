@@ -9,17 +9,17 @@ import { Article } from '../../interfaces/interfaces';
 })
 export class Tab1Page implements OnInit{
 
-  noticias: Article[]= [];
-  // noticias: Article[]= [{
-  //   source: {id: 'id',name: 'nom'},
-  //   author: 'AAA',
-  //   title: 'NUEV',
-  //   description: 'ABC',
-  //   url: 'https://www.typescriptlang.org/docs/handbook/interfaces.html',
-  //   urlToImage: null,
-  //   publishedAt: 'AAAA',
-  //   content: 'dbdbdbd',
-  // }];
+  //noticias: Article[]= [];
+  noticias: Article[]= [{
+    source: {id: 'id',name: 'nom'},
+    author: 'AAA',
+    title: 'NUEVO',
+    description: 'ABC',
+    url: 'https://www.typescriptlang.org/docs/handbook/interfaces.html',
+    urlToImage: null,
+    publishedAt: 'AAAA',
+    content: 'dbdbdbd',
+  }];
   constructor(
     private _noticiasService: NoticiasService
   )
@@ -28,7 +28,7 @@ export class Tab1Page implements OnInit{
   }
 
   ngOnInit(){
-    this.cargarNoticias();
+    //this.cargarNoticias();
   }
 
   loadData(event){

@@ -14,22 +14,34 @@ export class DataLocalService {
 
   ) 
   {
-
+    this.cargarFavoritos();
   }
 
   guardarNoticia(noticia: Article){
     const existe = this.noticiasFavoritos.find(noti=>noti.title=noticia.title);
+    console.log(existe);
     if(!existe){
       this.noticiasFavoritos.unshift(noticia);
-      console.log(this.noticiasFavoritos)
-      this.nativeStorage.setItem('favoritos', this.noticiasFavoritos)
-      .then(() => alert('guardado'),
-        error => console.error('Error storing item', error)
-      );
+      console.log(this.noticiasFavoritos);
+      this.nativeStorage.setItem('favoritos', this.noticiasFavoritos).then(()=>{
+        alert('Giuard');
+
+      })
     }
   }
 
-  cargarFavoritos(){
-    
+  async cargarFavoritos(){
+    console.log('cargar');
+    // this.nativeStorage.getItem('favoritos').then((favoritos) => {
+    //   console.log('favoritos: ',favoritos);
+    // },
+    // error => {
+    //   console.error(error)
+    // });
+    const favoritos = await this.nativeStorage.getItem('favoritos');
+    console.log('async await: ',favoritos);
+    if(favoritos){
+      this.noticiasFavoritos = favoritos;
+    }
   }
 }
