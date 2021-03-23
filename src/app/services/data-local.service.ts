@@ -19,7 +19,8 @@ export class DataLocalService {
   }
 
   guardarNoticia(noticia: Article){
-    const existe = this.noticiasFavoritos.find(noti=>noti.title=noticia.title);
+    console.log('ABA');
+    const existe = this.noticiasFavoritos.find(noti=>noti.title==noticia.title);
     console.log(existe);
     if(!existe){
       this.noticiasFavoritos.unshift(noticia);
