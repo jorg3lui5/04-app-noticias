@@ -12,6 +12,8 @@ import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { SQLite } from '@ionic-native/sqlite/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
     BrowserModule, 
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
